@@ -449,7 +449,13 @@ defmodule PhoenixStorybook.StoryLive do
 
   defp render_content(:page, assigns) do
     ~H"""
-    <div class={LayoutView.sandbox_class(@socket, {:div, class: "psb psb:pb-12"}, assigns)}>
+    <div class={
+      LayoutView.sandbox_class(
+        @socket,
+        {:div, class: ["psb psb:pb-12", assigns[:color_mode_class]]},
+        assigns
+      )
+    }>
       {@story.render(%{__changed__: %{}, tab: @tab, theme: @theme})
       |> to_raw_html()}
     </div>
