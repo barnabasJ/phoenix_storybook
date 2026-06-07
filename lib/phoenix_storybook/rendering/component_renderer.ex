@@ -183,11 +183,13 @@ defmodule PhoenixStorybook.Rendering.ComponentRenderer do
   end
 
   defp eval_component_heex(fun_or_mod, heex, opts, assigns) do
+    # LiveView 1.2 removed TagEngine's EEx.Engine integration
+    # (TagEngine.compile/2 validates its options strictly and no longer
+    # accepts being driven through EEx.compile_string). Compile directly.
     quoted_code =
-      EEx.compile_string(heex,
-        engine: TagEngine,
+      TagEngine.compile(heex,
+        engine: LiveViewEngine,
         caller: __ENV__,
-        source: heex,
         tag_handler: Phoenix.LiveView.HTMLEngine
       )
 
