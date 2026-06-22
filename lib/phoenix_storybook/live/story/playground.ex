@@ -997,8 +997,7 @@ defmodule PhoenixStorybook.Story.Playground do
       role="switch"
     >
       {hidden_input(@form, @attr_id, value: "#{@value}")}
-      <span class={"psb #{@translate_class} psb:form-input psb:p-0 psb:border-0 psb:pointer-events-none psb:inline-block psb:h-5 psb:w-5 psb:rounded-full psb:bg-white psb:shadow psb:transform psb:ring-0 psb:transition psb:ease-in-out psb:duration-200"}>
-      </span>
+      <span class={"psb #{@translate_class} psb:form-input psb:p-0 psb:border-0 psb:pointer-events-none psb:inline-block psb:h-5 psb:w-5 psb:rounded-full psb:bg-white psb:shadow psb:transform psb:ring-0 psb:transition psb:ease-in-out psb:duration-200"}></span>
     </button>
     """
   end
@@ -1071,10 +1070,6 @@ defmodule PhoenixStorybook.Story.Playground do
         "psb psb:form-select psb:mt-1 psb:block psb:w-full psb:dark:text-slate-300 psb:dark:bg-slate-700 psb:pl-3 psb:pr-10 psb:py-2 psb:text-xs psb:md:text-sm psb:focus:outline-none psb:focus:ring-indigo-500 psb:dark:focus:ring-sky-400 psb:focus:border-indigo-500 psb:dark:focus:ring-sky-400 psb:border-gray-300 psb:dark:border-slate-600 psb:rounded-md"
     )}
     """
-  end
-
-  defp attr_input(assigns = %{values: values}) when not is_nil(values) do
-    attr_input(%{assigns | values: values})
   end
 
   defp on_toggle_click(attr_id, value) do
